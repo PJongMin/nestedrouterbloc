@@ -12,11 +12,29 @@ class AppRouter extends $AppRouter {
           page: QuestionRoute.page,
           path: '/home',
           children: [
-            CustomRoute(page: QuestionARoute.page, path: 'ab',transitionsBuilder: TransitionsBuilders.noTransition),
-            CustomRoute(page: QuestionBRoute.page, path: 'cd',transitionsBuilder: TransitionsBuilders.noTransition),
+            CustomRoute(page: QuestionARoute.page, path: 'ab', transitionsBuilder: TransitionsBuilders.noTransition),
+            CustomRoute(page: QuestionBRoute.page, path: 'cd', transitionsBuilder: TransitionsBuilders.noTransition),
+            CustomRoute(
+                page: MyRoute.page,
+                path: 'mypage',
+                transitionsBuilder: TransitionsBuilders.noTransition,
+                children: [
+                  CustomRoute(
+                      page: SettingRoute.page,
+                      path: 'setting',
+                      transitionsBuilder: TransitionsBuilders.noTransition,
+                      children: [
+                        CustomRoute(
+                            page: ProfileRoute.page,
+                            path: 'profile',
+                            transitionsBuilder: TransitionsBuilders.noTransition),
+                      ]),
+                  CustomRoute(
+                      page: ContractsRoute.page,
+                      path: 'contracts',
+                      transitionsBuilder: TransitionsBuilders.noTransition),
+                ]),
           ],
         )
       ];
 }
-
-

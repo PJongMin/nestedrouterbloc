@@ -1,9 +1,9 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nested_router_bloc/question/question_bloc.dart';
 import 'package:nested_router_bloc/router/AppRouter.gr.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 @RoutePage()
 class QuestionPage extends StatelessWidget {
@@ -15,7 +15,7 @@ class QuestionPage extends StatelessWidget {
         appBar: AppBar(
           title: BlocBuilder<QuestionBloc, QuestionState>(
             builder: (context, state) {
-              return Text('Count: ${state.titleCount}');
+              return Text('Count: ${state.titleCount}ㄴㅇㄹㄴㅇㄹㄴㅇㄹ');
             },
           ),
         ),
@@ -31,13 +31,22 @@ class QuestionPage extends StatelessWidget {
                     onPressed: () {
                       AutoRouter.of(context).push(QuestionARoute());
                     },
-                    child: Text('AAA'),
+                    child: Text('증가페이지',style: TextStyle(fontSize: 30),),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(20.0),
+                    child: ElevatedButton(
+                      onPressed: () {
+                        AutoRouter.of(context).push(QuestionBRoute());
+                      },
+                      child: Text('감소페이지',style: TextStyle(fontSize: 30),),
+                    ),
                   ),
                   ElevatedButton(
                     onPressed: () {
-                      AutoRouter.of(context).push(QuestionBRoute());
+                      AutoRouter.of(context).push(MyRoute());
                     },
-                    child: Text('BBB'),
+                    child: Text('마이페이지',style: TextStyle(fontSize: 30),),
                   ),
                 ],
               ),

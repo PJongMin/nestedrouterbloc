@@ -3,24 +3,29 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nested_router_bloc/question/question_bloc.dart';
+import 'package:nested_router_bloc/router/AppRouter.gr.dart';
 
 @RoutePage()
-class QuestionAPage extends StatelessWidget {
+class SettingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.blue,
+      color: Colors.green,
       child: Column(
         children: [
           Center(
-            child: Text('Question A Page??'),
+            child: Text('Setting Page',style: TextStyle(fontSize: 30),),
           ),
           ElevatedButton(
             onPressed: () {
-              BlocProvider.of<QuestionBloc>(context).add(IncrementTitleCount());
+              AutoRouter.of(context).push(ProfileRoute());
             },
-            child: Text('Increment Count'),
+            child: Text('프로파일 화면으로 이동'),
           ),
+          const Expanded(
+            // nested routes will be rendered here
+            child: AutoRouter(),
+          )
         ],
       ),
     );
